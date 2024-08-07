@@ -16,7 +16,8 @@ namespace StringCalculatorKata
                     return 0;
                 }
 
-                return int.Parse(numbers);
+                var numberArray = numbers.Split(',');
+                return numberArray.Sum(int.Parse);
             }
         }
     }
