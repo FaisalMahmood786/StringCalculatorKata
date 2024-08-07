@@ -25,6 +25,14 @@ namespace StringCalculatorKata.Tests
             var result = calculator.Add("1");
             Assert.AreEqual(1, result);
         }
+
+        [Test]
+        public void Add_TwoNumbers_ReturnsSum()
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.Add("1,2");
+            Assert.AreEqual(3, result);
+        }
     }
 }
 
