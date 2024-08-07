@@ -33,6 +33,14 @@ namespace StringCalculatorKata.Tests
             var result = calculator.Add("1,2");
             Assert.AreEqual(3, result);
         }
+
+        [Test]
+        public void Add_UnknownNumberOfNumbers_ReturnsSum()
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.Add("1,2,3,4,5");
+            Assert.AreEqual(15, result);
+        }
     }
 }
 
