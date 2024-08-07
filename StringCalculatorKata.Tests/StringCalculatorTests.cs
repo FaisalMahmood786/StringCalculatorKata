@@ -41,6 +41,14 @@ namespace StringCalculatorKata.Tests
             var result = calculator.Add("1,2,3,4,5");
             Assert.AreEqual(15, result);
         }
+
+        [Test]
+        public void Add_NewlineDelimiter_ReturnsSum()
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.Add("1\n2,3");
+            Assert.AreEqual(6, result);
+        }
     }
 }
 
