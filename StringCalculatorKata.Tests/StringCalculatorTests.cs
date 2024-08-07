@@ -17,6 +17,14 @@ namespace StringCalculatorKata.Tests
             var result = calculator.Add("");
            Assert.AreEqual(0, result);
         }
+
+        [Test]
+        public void Add_SingleNumber_ReturnsNumber()
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.Add("1");
+            Assert.AreEqual(1, result);
+        }
     }
 }
 
