@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StringCalculatorKata
+﻿namespace StringCalculatorKata
 {
     public class StringCalculator
     {
@@ -16,9 +10,10 @@ namespace StringCalculatorKata
                     return 0;
                 }
 
-                var numberArray = numbers.Split(',');
-                return numberArray.Sum(int.Parse);
+                var numberArray = numbers.Split(',').Select(int.Parse).ToArray();
+                return numberArray.Sum();
             }
+        }
         }
     }
 }
