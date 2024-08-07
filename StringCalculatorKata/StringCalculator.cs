@@ -10,8 +10,15 @@
                     return 0;
                 }
 
-                var numberArray = numbers.Split(',').Select(int.Parse).ToArray();
-                return numberArray.Sum();
+                {
+                    if (string.IsNullOrEmpty(numbers))
+                    {
+                        return 0;
+                    }
+
+                    var numberArray = numbers.Split(new[] { ',', '\n' }).Select(int.Parse).ToArray();
+                    return numberArray.Sum();
+                }
             }
         }
     }
