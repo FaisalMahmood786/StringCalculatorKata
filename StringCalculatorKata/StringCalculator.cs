@@ -27,9 +27,7 @@
                     throw new ArgumentException($"Negatives not allowed: {string.Join(", ", negatives)}");
                 }
 
-                return nums.Sum();
-
-
+                return nums.Where(n => n <= 1000).Sum();
 
             }
         }
