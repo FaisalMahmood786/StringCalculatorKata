@@ -56,6 +56,13 @@ namespace StringCalculatorKata.Tests
             var result = calculator.Add("//;\n1;2");
             Assert.AreEqual(3, result);
         }
+        [Test]
+        public void Add_NegativeNumber_ThrowsException()
+        {
+            var calculator = new StringCalculator();
+            var ex = Assert.Throws<ArgumentException>(() => calculator.Add("1, -2"));
+            Assert.AreEqual("Negatives not allowed", ex.Message);
+        }
 
     }
 }
