@@ -1,9 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StringCalculatorKata.Tests
 {
@@ -83,7 +78,7 @@ namespace StringCalculatorKata.Tests
         {
             var calculator = new StringCalculator();
             var result = calculator.Add("//[*][%]\n1*2%3");
-            Assert.AreEqual(6, result);
+                        Assert.AreEqual(6, result);
         }
 
     }
