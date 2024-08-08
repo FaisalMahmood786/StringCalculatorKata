@@ -21,16 +21,24 @@
                 }
 
                 var nums = numbers.Split(separators, StringSplitOptions.None).Select(int.Parse).ToList();
-                var negatives = nums.Where(n => n < 0).ToList();
-                if (negatives.Any())
-                {
-                    throw new ArgumentException($"Negatives not allowed: {string.Join(", ", negatives)}");
-                }
-
-                return nums.Where(n => n <= 1000).Sum();
+                ValidateNoNegatives(nums);
+                return CalculateSum(nums);
 
             }
         }
-    }
 
+        private int CalculateSum(List<int> numbers)
+        {
+            return numbers.Where(n => n <= 1000).Sum();
+        }
+
+        private void ValidateNoNegatives(List<int> numbers)
+        {
+            var negatives = numbers.Where(n => n < 0).ToList();
+            if (negatives.Any())
+            {
+                throw new ArgumentException($"Negatives not allowed: {string.Join(", ", negatives)}");
+            }
+        }
+    }
 }
