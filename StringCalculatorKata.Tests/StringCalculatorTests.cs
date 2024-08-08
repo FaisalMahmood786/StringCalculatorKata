@@ -71,6 +71,13 @@ namespace StringCalculatorKata.Tests
             Assert.AreEqual(2, result);
         }
 
+        [Test]
+        public void Add_CustomDelimiterOfAnyLength_ReturnsTheirSum()
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.Add("//[***]\n1***2***3");
+            Assert.AreEqual(6, result);
+        }
 
     }
 }
