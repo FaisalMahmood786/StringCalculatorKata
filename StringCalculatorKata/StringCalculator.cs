@@ -11,16 +11,19 @@
                     return 0;
                 }
 
-                string[] separators = { ",", "\n" };
+                var separators = new List<string> { ",", "\n" };
                 if (numbers.StartsWith("//"))
                 {
                     var delimiterEndIndex = numbers.IndexOf('\n');
                     var customDelimiter = numbers[2..delimiterEndIndex];
-                    separators = new[] { customDelimiter };
+                    if (customDelimiter.StartsWith("[") && customDelimiter.EndsWith("]"))
+                    {
+                        customDelimiter = customDelimiter[1..^1];
+                    }
+                    separators.Add(customDelimiter);
                     numbers = numbers[(delimiterEndIndex + 1)..];
                 }
-
-                var nums = numbers.Split(separators, StringSplitOptions.None).Select(int.Parse).ToList();
+                var nums = numbers.Split(separators.ToArray(), StringSplitOptions.None).Select(int.Parse).ToList();
                 ValidateNoNegatives(nums);
                 return CalculateSum(nums);
 
