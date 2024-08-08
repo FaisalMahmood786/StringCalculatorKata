@@ -53,7 +53,7 @@ namespace StringCalculatorKata.Tests
         public void Add_NumbersWithCustomDelimiter_ReturnsTheirSum()
         {
             var calculator = new StringCalculator();
-            var result = calculator.Add("//;\\n1;2");
+            var result = calculator.Add("//;\n1;2");
             Assert.AreEqual(3, result);
         }
 
