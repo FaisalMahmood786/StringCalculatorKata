@@ -63,6 +63,14 @@ namespace StringCalculatorKata.Tests
             var ex = Assert.Throws<ArgumentException>(() => calculator.Add("1, -2"));
             Assert.AreEqual("Negatives not allowed: -2", ex.Message);
         }
+        [Test]
+        public void Add_NumbersGreaterThan1000_IgnoredInSum()
+        {
+            var calculator = new StringCalculator();
+            var result = calculator.Add("2,1001");
+            Assert.AreEqual(2, result);
+        }
+
 
     }
 }
