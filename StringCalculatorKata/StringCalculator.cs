@@ -18,11 +18,16 @@
                     var customDelimiter = numbers[2..delimiterEndIndex];
                     if (customDelimiter.StartsWith("[") && customDelimiter.EndsWith("]"))
                     {
-                        customDelimiter = customDelimiter[1..^1];
+                        var delimiterParts = customDelimiter.Split(new[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries);
+                        separators.AddRange(delimiterParts);
                     }
-                    separators.Add(customDelimiter);
+                    else
+                    {
+                        separators.Add(customDelimiter);
+                    }
                     numbers = numbers[(delimiterEndIndex + 1)..];
                 }
+
                 var nums = numbers.Split(separators.ToArray(), StringSplitOptions.None).Select(int.Parse).ToList();
                 ValidateNoNegatives(nums);
                 return CalculateSum(nums);
